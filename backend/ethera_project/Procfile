@@ -1,1 +1,1 @@
-web: gunicorn backend.ethera_project.wsgi
+web: gunicorn ethera_project.wsgi
