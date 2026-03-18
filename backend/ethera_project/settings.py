@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -78,19 +81,25 @@ WSGI_APPLICATION = 'ethera_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(
+        'postgresql://ethera_db_user:k8mN1akPJPC5SOZFVWm8V6pQcgrQVZYw@dpg-d6t3io2a214c73cb79n0-a/ethera_db'
+    )
 }
 
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'ethera_db',
-#         'USER': 'postgres',
-#         'PASSWORD': 'postgres',
+#         'USER': 'ethera_db_user',
+#         'PASSWORD': 'k8mN1akPJPC5SOZFVWm8V6pQcgrQVZYw',
 #         'HOST': 'localhost',
 #         'PORT': '5434',
 #     }
